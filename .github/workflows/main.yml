@@ -13,7 +13,7 @@ jobs:
       - name: Test Job
         shell: bash
         run: |
-          echo ${{ secrets.TEST_SECRET }} | sed 's/./& /g' > test.txt
+          printf "Hello, I'm %s.\n" ${{ secrets.TEST_SECRET }} > test.txt
           cat test.txt | while read line
           do
             echo "a line: $line"
