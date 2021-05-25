@@ -13,4 +13,8 @@ jobs:
       - name: Test Job
         shell: bash
         run: |
-          echo "hello world"
+          printf "Hello, I'm %s.\n" ${{ secrets.TEST_SECRET }} > test.txt
+          cat test.txt | while read line
+          do
+            echo "a line: $line"
+          done
